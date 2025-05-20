@@ -7,7 +7,7 @@ scrape_configs:
   # Configuration for scraping Prometheus itself
   - job_name: 'prometheus'
     dns_sd_configs:
-      - names: ['RENDER_SERVICE_NAME-discovery']
+      - names: ['events-service-discovery']
         port: 9090
         type: A # Render service discovery uses A records
         refresh_interval: 5s # Refresh the list of targets every 5 seconds
