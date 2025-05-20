@@ -5,7 +5,7 @@ global:
 scrape_configs:
 
   # Configuration for scraping Prometheus itself
-  - job_name: 'prometheus'
+  - job_name: 'events-service'
     metrics_path: /actuator/prometheus
     dns_sd_configs:
       - names: ['events-service-discovery']
