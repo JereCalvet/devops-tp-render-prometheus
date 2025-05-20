@@ -7,12 +7,15 @@ scrape_configs:
   # Configuration for scraping Prometheus itself
   - job_name: 'events-service'
     metrics_path: /actuator/prometheus
-    dns_sd_configs:
-      - names: ['events-service-discovery']
-        port: 8080
-        type: A # Render service discovery uses A records
-        refresh_interval: 5s # Refresh the list of targets every 5 seconds
-       
+    scheme: https
+    static_configs:
+      - targets:
+          - events-service-dlmr.onrender.com
+    #dns_sd_configs:
+    #  - names: ['events-service-discovery']
+    #    port: 8080
+    #    type: A # Render service discovery uses A records
+    #    refresh_interval: 5s # Refresh the list of targets every 5 seconds
 
   # Uncomment to add a job for scraping another Render service
   # - job_name: 'REPLACE_ME' # Replace w/ your service's name
